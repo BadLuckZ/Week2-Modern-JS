@@ -17,10 +17,27 @@
 
     <script>
       document
-        .getElementById('go-button')
-        .addEventListener('click', function () {
+        .getElementById("go-button")
+        .addEventListener("click", function () {
           /* เพิ่ม code ตรงตำแหน่งนี้ */
-        })
+
+          const domainInput = document.getElementById("domain-input").value;
+          if (domainInput) {
+            const url =
+              domainInput.startsWith("https://") ||
+              domainInput.startsWith("http://")
+                ? domainInput
+                : "http://" + domainInput;
+
+            // 1.
+            window.location.href = url;
+
+            // 2.
+            // window.location.replace(url);
+          } else {
+            alert("Please Enter the Domain!");
+          }
+        });
     </script>
   </body>
 </html>

@@ -11,9 +11,21 @@
       <input type="text" id="textInput" name="textInput" />
     </form>
     <script>
-      const textInput = document.getElementById('textInput')
+      const textInput = document.getElementById("textInput");
 
       /* เพิ่ม code ตรงนี้ */
+      let isTyping = false;
+
+      textInput.addEventListener("input", () => {
+        isTyping = true;
+      });
+
+      /* เพิ่ม code ตรงนี้ */
+      window.addEventListener("beforeunload", (e) => {
+        if (isTyping) {
+          e.returnValue = true;
+        }
+      });
     </script>
   </body>
 </html>
