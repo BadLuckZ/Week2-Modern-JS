@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Data Submission</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
   </head>
   <body>
     <h1>Easy Register</h1>
@@ -26,21 +25,28 @@
 
     <script>
       document
-        .getElementById('user-form')
-        .addEventListener('submit', async function (event) {
-          event.preventDefault()
+        .getElementById("user-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
 
-          const name = document.getElementById('name').value
-          const email = document.getElementById('email').value
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
 
           try {
             /* ใส่ code สำหรับบันทึกข้อมูลเข้า API */
-            alert('บันทึกข้อมูลสำเร็จ!')
-            console.log('Success:', response.data)
+            const response = await axios.post(
+              "https://65a25d5342ecd7d7f0a771bd.mockapi.io/users",
+              {
+                name: name,
+                email: email,
+              }
+            );
+            alert("บันทึกข้อมูลสำเร็จ!");
+            console.log("Success:", response.data);
           } catch (error) {
-            console.error('Error:', error)
+            console.error("Error:", error);
           }
-        })
+        });
     </script>
   </body>
 </html>

@@ -12,15 +12,25 @@
     <h1>Pokemon List</h1>
     <div id="pokemon-container"></div>
     <script>
-      document.addEventListener('DOMContentLoaded', async function () {
+      document.addEventListener("DOMContentLoaded", async function () {
         try {
-          const container = document.getElementById('pokemon-container')
+          const container = document.getElementById("pokemon-container");
 
           /* ใส่ code ตรงนี้เพื่อให้แสดงผลลัพธ์จาก API ออกมาที่ pokemon-container */
+          const response = await axios.get(
+            "https://pokeapi.co/api/v2/pokemon?limit=5"
+          );
+          const data = response.data;
+
+          data.results.forEach((pokemon) => {
+            const div = document.createElement("div");
+            div.textContent = pokemon.name;
+            container.appendChild(div);
+          });
         } catch (error) {
-          console.error('Error:', error)
+          console.error("Error:", error);
         }
-      })
+      });
     </script>
   </body>
 </html>
