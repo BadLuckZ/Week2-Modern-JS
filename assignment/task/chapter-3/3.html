@@ -25,13 +25,32 @@
     </ul>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const itemList = document.getElementById('itemList')
-        const upButtons = document.querySelectorAll('.up')
-        const downButtons = document.querySelectorAll('.down')
+      document.addEventListener("DOMContentLoaded", function () {
+        const itemList = document.getElementById("itemList");
+        const upButtons = document.querySelectorAll(".up");
+        const downButtons = document.querySelectorAll(".down");
 
         /* ใส่ code ตรงนี้ */
-      })
+        upButtons.forEach((upButton) => {
+          upButton.addEventListener("click", () => {
+            const currentItem = upButton.parentNode;
+            const prevItem = currentItem.previousElementSibling;
+            if (prevItem) {
+              itemList.insertBefore(currentItem, prevItem);
+            }
+          });
+
+          downButtons.forEach((downButton) => {
+            downButton.addEventListener("click", () => {
+              const currentItem = downButton.parentNode;
+              const nextItem = currentItem.nextElementSibling;
+              if (nextItem) {
+                itemList.insertBefore(nextItem, currentItem);
+              }
+            });
+          });
+        });
+      });
     </script>
   </body>
 </html>

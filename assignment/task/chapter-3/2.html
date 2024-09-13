@@ -18,8 +18,23 @@
     <button id="toggleButton">Click Me</button>
 
     <script>
-      const toggleButton = document.getElementById('toggleButton')
+      const toggleButton = document.getElementById("toggleButton");
 
+      // 1.
+      toggleButton.addEventListener("click", () => {
+        toggleButton.classList.toggle("active");
+      });
+
+      // 2.
+      /*
+      toggleButton.addEventListener("click", () => {
+        if (this.classList.contains("active")) {
+          toggleButton.classList.remove("active");
+        } else {
+          toggleButton.classList.add("active");
+        }
+      });
+      */
     </script>
   </body>
 </html>

@@ -15,11 +15,24 @@
       <li>Item 3</li>
     </ul>
     <script>
-      const itemInput = document.getElementById('itemInput')
-      const addItemButton = document.getElementById('addItemButton')
-      const itemList = document.getElementById('itemList')
+      const itemInput = document.getElementById("itemInput");
+      const addItemButton = document.getElementById("addItemButton");
+      const itemList = document.getElementById("itemList");
 
-      /* ใส่ code ตรงนี้ */
+      addItemButton.addEventListener("click", () => {
+        const newItemText = itemInput.value.trim();
+        if (newItemText != "") {
+          const newItem = document.createElement("li");
+          newItem.textContent = newItemText;
+
+          // 1.
+          itemList.appendChild(newItem, itemList.firstChild);
+
+          // 2.
+          // itemList.insertBefore(newItem, itemList.firstChild);
+        }
+      });
+      item;
     </script>
   </body>
 </html>
