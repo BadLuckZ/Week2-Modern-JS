@@ -11,10 +11,16 @@
     <input type="text" id="persistent-input" placeholder="Type something..." />
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const inputField = document.getElementById('persistent-input')
+      document.addEventListener("DOMContentLoaded", () => {
+        const inputField = document.getElementById("persistent-input");
         /* เพิ่ม code ตรงนี้ */
-      })
+
+        inputField.value = localStorage.getItem("savedInput") || "";
+
+        inputField.addEventListener("input", () => {
+          localStorage.setItem("savedInput", inputField.value);
+        });
+      });
     </script>
   </body>
 </html>
