@@ -6,9 +6,31 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="email">
-    <div id="displayText" style="display: none;">
+    <input type="text" id="email" />
+    <div id="displayText" style="display: none">
       Please use your corporate email.
     </div>
   </body>
+  <script>
+    const focusDiv = document.getElementById("email");
+    const displayText = document.getElementById("displayText");
+
+    // 1.
+    focusDiv.addEventListener("focus", () => {
+      displayText.style.display = "block";
+    });
+    focusDiv.addEventListener("blur", () => {
+      displayText.style.display = "none";
+    });
+
+    // 2.
+    /*
+    focusDiv.addEventListener("click", () => {
+      displayText.style.display = "block";
+    });
+    focusDiv.addEventListener("click", () => {
+      displayText.style.display = "none";
+    });
+    */
+  </script>
 </html>

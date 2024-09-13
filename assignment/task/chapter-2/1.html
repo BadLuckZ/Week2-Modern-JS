@@ -14,4 +14,20 @@
       <p>You typed: <span id="displayText"></span></p>
     </div>
   </body>
+  <script>
+    const input = document.getElementById("textInput");
+    const output = document.getElementById("displayText");
+
+    // 1.
+    input.addEventListener("input", () => {
+      output.textContent = input.value;
+    });
+
+    // 2.
+    /* 
+      input.addEventListener("change", () => {
+      output.textContent = input.value;
+    }); 
+    */
+  </script>
 </html>
